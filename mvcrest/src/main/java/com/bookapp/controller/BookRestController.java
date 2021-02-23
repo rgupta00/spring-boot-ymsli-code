@@ -2,6 +2,8 @@ package com.bookapp.controller;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,6 +28,15 @@ public class BookRestController {
 	public BookRestController(BookService bookService) {
 		this.bookService = bookService;
 	}
+	
+	
+	@PostConstruct
+	public void addbook() {
+		bookService.addBook(new Book("3WA", "java is fun", "raj", 500));
+		bookService.addBook(new Book("3WQ", "spring in action", "foo", 500));
+		
+	}
+	
 	
 	@GetMapping(path = "book", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Book> getAllBooks(){

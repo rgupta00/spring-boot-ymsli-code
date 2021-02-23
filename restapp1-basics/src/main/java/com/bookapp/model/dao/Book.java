@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "book_table_mvc_rest")
+@Table(name = "book_table_mvc_boot")
 public class Book {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
