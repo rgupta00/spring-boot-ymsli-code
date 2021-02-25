@@ -25,9 +25,9 @@ import com.bookapp.exception.BookNotFoundException;
 
 import io.swagger.annotations.Api;
 import springfox.documentation.annotations.ApiIgnore;
-@Api(hidden = true)
-@ControllerAdvice
-@RestController
+//@Api(hidden = true)
+//@ControllerAdvice
+//@RestController
 public class ExceptionHandlerContoller extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(BookNotFoundException.class)

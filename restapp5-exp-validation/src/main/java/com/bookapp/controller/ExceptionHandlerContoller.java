@@ -53,12 +53,15 @@ public class ExceptionHandlerContoller extends ResponseEntityExceptionHandler {
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		//how to deal 
 		BindingResult bindingResult = ex.getBindingResult();
+		
 		List<FieldError> fieldErrors = bindingResult.getFieldErrors();
 		
 		StringBuilder builder=new StringBuilder("validation failed for : ");
 		
 		for(FieldError fe:fieldErrors ) {
-			builder.append(fe.getField()).append(" ,");
+			
+			
+			builder.append(fe.getDefaultMessage()).append(" ,");
 			
 		}
 		

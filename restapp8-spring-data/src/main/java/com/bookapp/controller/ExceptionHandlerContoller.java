@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.catalina.startup.SetAllPropertiesRule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,18 @@ public class ExceptionHandlerContoller extends ResponseEntityExceptionHandler {
 		errorMessage.setErrorMessage(ex.getMessage());
 		errorMessage.setTimeStamp(new Date());
 		return new ResponseEntity<ErrorMessage>(errorMessage, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(DataAccessException.class)
+	public ResponseEntity<ErrorMessage> dbExHandler(Exception ex) {
+		ErrorMessage errorMessage = new ErrorMessage();
+		errorMessage.setContactMail("rgupta.mtech@mgail.com");
+		System.out.println("--------------------------");
+		System.out.println(ex);
+		System.out.println("--------------------------");
+		errorMessage.setErrorMessage("some db hell happens  :(");
+		errorMessage.setTimeStamp(new Date());
+		return new ResponseEntity<ErrorMessage>(errorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 	@ExceptionHandler(Exception.class)

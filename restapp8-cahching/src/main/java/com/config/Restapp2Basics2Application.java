@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.bookapp.dto.Book;
 import com.bookapp.service.BookService;
@@ -21,6 +22,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableScheduling
 @EnableAspectJAutoProxy
 @SpringBootApplication
+@EnableTransactionManagement
 @ComponentScan({ "com.bookapp", "com.config" })
 @EntityScan("com.bookapp.dto")
 public class Restapp2Basics2Application implements CommandLineRunner {
