@@ -57,12 +57,16 @@ public class SecCofig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.anyRequest()
-		.authenticated()
+		.antMatchers("/admin/**").hasRole("ADMIN")
+		.antMatchers("/mgr/**").hasAnyRole("ADMIN","MGR")
+		.antMatchers("/emp/**").hasAnyRole("ADMIN","EMP","MGR")
+		.antMatchers("/home/**").permitAll()
 		.and()
 		.formLogin().loginPage("/showLoginPage")
 		.loginProcessingUrl("/loginprocess")
-		.permitAll();
+		.permitAll()
+		.and()
+		.exceptionHandling().accessDeniedPage("/access_denied");
 	}
 
 	
