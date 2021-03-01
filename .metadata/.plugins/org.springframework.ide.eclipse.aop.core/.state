@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="restapp11-spring-data"/>
-<aop-project name="restapp12-one-2-one"/>
-<aop-project name="mvcrest"/>
-<aop-project name="restapp13-one-2-many"/>
+<aop-project name="restapp14-sp-sec"/>
+<aop-project name="secxml"/>
+<aop-project name="secjava"/>
 </aop-reference-model>

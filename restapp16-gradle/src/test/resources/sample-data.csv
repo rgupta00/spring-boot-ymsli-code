@@ -1,0 +1,5 @@
+first no: sec no: expected result
+1, 2, 3
+11, 20, 31
+12, 20, 32
+13, 20, 33

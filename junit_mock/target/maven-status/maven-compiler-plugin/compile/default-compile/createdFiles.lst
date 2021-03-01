@@ -1,0 +1,4 @@
+com/bookapp/service/BookServiceImpl.class
+com/bookapp/dao/BookDaoImpl.class
+com/bookapp/dao/BookDao.class
+com/bookapp/service/BookService.class
